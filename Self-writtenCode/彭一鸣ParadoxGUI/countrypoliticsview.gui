@@ -2500,7 +2500,7 @@ guiTypes = {
 			name = "title"
 			position = { x = 25 y = 7 }
 			font = "VCR02_20"
-			text = "官房"
+			text = JAPPM1 #"官房"
 			maxWidth = 450
 			maxHeight = 20
 			format = center
@@ -2509,7 +2509,7 @@ guiTypes = {
 			name = "switch"
 			position = { x = 25 y = 30 }
 			font = "VCR02_12"
-			text = "少女官房"
+			text = JAPPM2 #"少女官房"
 			maxWidth = 450
 			maxHeight = 20
 			format = center
@@ -2583,7 +2583,7 @@ guiTypes = {
 						name = "PMS_Prime_Minister_name"
 						position = { x = 200 y = 32 }
 						font = "VCR02_12"
-						text = "现任：丰川祥子"
+						text = JAPPM3 #"现任：丰川祥子"
 						maxWidth = 142
 						maxHeight = 10
 						format = center
@@ -2634,7 +2634,7 @@ guiTypes = {
 						name = "PMS_Chief_Cabinet_Secretary_name"
 						position = { x = 200 y = 32 }
 						font = "VCR02_12"
-						text = "现任：三角初华"
+						text = JAPPM4 #"现任：三角初华"
 						maxWidth = 142
 						maxHeight = 10
 						format = center
