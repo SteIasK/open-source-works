@@ -1056,31 +1056,6 @@ guiTypes = {
 				format = "UPPER_LEFT"
 			}
 
-            #TSRchange TSR修改
-			containerWindowType = {
-				name = "PMS_scr_government_window_cover"	
-				position = { x = 30 y = 30 }
-				containerWindowType = {
-					name = "PMS_scr_government_window_anchor"	
-					position = { x = 0 y = 0 }
-				}
-				iconType ={
-					name ="category_icon"
-					spriteType = "GFX_idea_categories"
-					position = { x= 6 y= 1 } 
-					tooltip = ministers
-					Orientation = "UPPER_LEFT"
-				}
-				
-				instantTextboxType = {
-					name = "name"
-					position = { x = 72 y = 8 }
-					font = "VCR02_18"
-					text = ministers
-					maxWidth = 300
-					maxHeight = 20
-				}
-			}
 
 		}
 
