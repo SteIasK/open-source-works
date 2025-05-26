@@ -1065,13 +1065,6 @@ guiTypes = {
 					position = { x = 0 y = 0 }
 				}
 				iconType ={
-					name ="category_header"
-					spriteType = "GFX_category_header"
-					position = { x=-3 y=-7 }
-					Orientation = "UPPER_LEFT"
-				}
-				
-				iconType ={
 					name ="category_icon"
 					spriteType = "GFX_idea_categories"
 					position = { x= 6 y= 1 } 
@@ -2322,6 +2315,12 @@ guiTypes = {
 	containerWindowType = {
 		name = "PMS_scr_collapse_btn_window"	
 		position = { x = 0 y = 0 }
+		iconType ={
+			name ="category_header"
+			spriteType = "GFX_category_header"
+			position = { x=-3 y=-7 }
+			Orientation = "UPPER_LEFT"
+		}
 		instantTextboxType = {
 			name = "name"
 			position = { x = 460 y = 8 }
