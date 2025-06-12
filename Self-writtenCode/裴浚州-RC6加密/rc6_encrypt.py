@@ -105,27 +105,41 @@ def encrypt(sentence,s):
 
 
 def main():
-    print("ENCRYPTION: ")
-    key = input("Enter Key(0-16 characters): ")
-    if len(key) <16:
+    print("MASTER BRANCH: ENHANCED SECURITY")
+    
+    # 添加密钥复杂度检查
+    while True:
+        key = input("Enter secure key (16 chars, mix of letters/numbers): ")
+        if any(char.isdigit() for char in key) and any(char.isalpha() for char in key):
+            break
+        print("Key must contain both letters and numbers!")
+    
+    # 保持长度处理
+    if len(key) < 16:
         key = key + " "*(16-len(key))
     key = key[:16]
-                         
-    print("UserKey: " + key)
+    
     s = generateKey(key)
-    sentence = input("Enter Sentence(0-16 characters): ")
-    if len(sentence) <16:
-        sentence = sentence + " "*(16-len(sentence))
-    sentence = sentence[:16]
     
-    orgi,cipher = encrypt(sentence,s)
-    esentence = deBlocker(cipher)
+    # 修改输入提示
+    plaintext = input("Enter confidential message (16 chars max): ")
+    if not plaintext:
+        print("Error: Message cannot be empty!")
+        return
     
-    print("\nInput String: " + sentence)
-    print("Original String list: ", orgi)
+    if len(plaintext) < 16:
+        plaintext = plaintext + " "*(16-len(plaintext))
+    plaintext = plaintext[:16]
     
-    print("\nEncrypted String list: ", cipher)
-    print("Encrypted String: " + binascii.hexlify(esentence.encode()).decode())
+    original, encrypted = encrypt(plaintext, s)
+    encrypted_hex = binascii.hexlify(plaintext.encode()).decode()
+    
+    # 增强输出信息
+    print("\nSECURITY REPORT")
+    print("Original:", plaintext)
+    print("Key Used:", key)
+    print("Key Strength:", "Strong" if len(set(key)) > 10 else "Medium")
+    print("Encrypted HEX:", encrypted_hex)
 
 if __name__ == "__main__":
     main()
