@@ -1,6 +1,6 @@
 import math
 import binascii
-
+import time
 
 #rotate right input x, by n bits
 def ROR(x, n, bits = 32):
@@ -84,18 +84,17 @@ def encrypt(sentence,s):
     lgw = 5
     B = (B + s[0])%modulo
     D = (D + s[1])%modulo 
-    for i in range(1,r+1):
-        t_temp = (B*(2*B + 1))%modulo 
-        t = ROL(t_temp,lgw,32)
-        u_temp = (D*(2*D + 1))%modulo
-        u = ROL(u_temp,lgw,32)
-        tmod=t%32
-        umod=u%32
-        A = (ROL(A^t,umod,32) + s[2*i])%modulo 
-        C = (ROL(C^u,tmod,32) + s[2*i+ 1])%modulo
-        (A, B, C, D)  =  (B, C, D, A)
-    A = (A + s[2*r + 2])%modulo 
-    C = (C + s[2*r + 3])%modulo
+    start_time = time.time()
+    for i in range(1, r + 1):
+        t_temp = (B * (2 * B + 1)) % modulo
+        t = ROL(t_temp, lgw, 32)
+        u_temp = (D * (2 * D + 1)) % modulo
+        u = ROL(u_temp, lgw, 32)
+        print(f"Round {i}: A={A}, B={B}, C={C}, D={D}, t={t}, u={u}")
+        A = (ROL(A ^ t, u % 32, 32) + s[2 * i]) % modulo
+        C = (ROL(C ^ u, t % 32, 32) + s[2 * i + 1]) % modulo
+        A, B, C, D = B, C, D, A
+    print(f"Encryption took {time.time() - start_time:.6f}s")
     cipher = []
     cipher.append(A)
     cipher.append(B)
